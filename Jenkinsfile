@@ -2,14 +2,10 @@ pipeline {
     agent any
   
     stages {
-        stage('Clone') {
-            steps {
-                git clone 'https://github.com/KARTHIKEYAN-KK/jenkins.git'
-            }
-        }
         stage('Build') {
             steps {
-                sh 'cp -r ${WORKSPACE}/* /home/ubuntu/api'
+                sh 'mkdir /home/ubuntu/api2'
+                sh 'cp /var/lib/jenkins/workspace/Github/* /home/ubuntu/api2'
             }
         }
     }
